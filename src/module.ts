@@ -1,10 +1,21 @@
-import type { BuildInfo } from './runtime/types'
-import fs from 'node:fs'
-import { createResolver, defineNuxtModule } from '@nuxt/kit'
-import { getEnv } from './runtime/utils/env'
+import type { BuildInfo, Environment } from './runtime/types'
+import { addImportsDir, createResolver, defineNuxtModule } from '@nuxt/kit'
+import { getGitInfo } from './runtime/utils/env'
+
+declare module '@nuxt/schema' {
+  interface NuxtConfig {
+    buildEnv?: Partial<BuildInfo>
+  }
+  interface AppConfigInput {
+    buildEnv?: Partial<BuildInfo>
+  }
+  interface AppConfig {
+    buildEnv: BuildInfo
+  }
+}
 
 export interface ModuleOptions {
-  version: string
+  version?: string
   disablePublicAssets?: boolean
 }
 
@@ -13,44 +24,29 @@ export default defineNuxtModule<ModuleOptions>({
     name: 'build-env',
     configKey: 'buildEnv',
   },
+  defaults: {
+    version: undefined,
+    disablePublicAssets: false,
+  },
   async setup(options, nuxt) {
-    const resolver = createResolver(nuxt.options.rootDir)
+    const { resolve } = createResolver(import.meta.url)
+    const runtimeDir = resolve('./runtime')
 
-    const packageJsonPath = resolver.resolve('package.json')
-    const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf-8'))
+    nuxt.options.alias['#build-env'] = resolve('./runtime')
 
-    if (!packageJson.version) {
-      options.version = '0.0.0'
-    }
-
-    if (packageJson.version) {
-      options.version = packageJson.version
-    }
-
-    /**
-     * We use this module to inject build info into the app.
-     * This is useful for debugging and for displaying the current build info in the app.
-     * The build info is also used to determine which public assets to serve.
-     */
-    const { env, commit, shortCommit, branch } = await getEnv()
+    // Get build info
+    const { branch, commit, shortCommit } = await getGitInfo()
     const buildInfo: BuildInfo = {
-      version: options.version,
-      time: +Date.now(),
+      version: options.version || '0.0.0',
       commit,
       shortCommit,
       branch,
-      env,
+      env: process.env.NODE_ENV as Environment,
+      time: new Date().toISOString(),
     }
 
-    nuxt.options.appConfig = nuxt.options.appConfig || {}
-    nuxt.options.appConfig.env = env
-    nuxt.options.appConfig.buildInfo = buildInfo
+    nuxt.options.appConfig.buildEnv = buildInfo
 
-    nuxt.options.nitro.virtual = nuxt.options.nitro.virtual || {}
-    nuxt.options.nitro.virtual['#build-info'] = `export const env = ${JSON.stringify(env)}`
-
-    if (!options.disablePublicAssets) {
-      nuxt.options.nitro.publicAssets = nuxt.options.nitro.publicAssets || []
-    }
+    addImportsDir(resolve(runtimeDir, 'composables'))
   },
 })

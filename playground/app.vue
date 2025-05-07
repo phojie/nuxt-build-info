@@ -1,10 +1,10 @@
 <script setup lang="ts">
-const appConfig = useAppConfig()
+const buildInfo = useBuildEnv()
 </script>
 
 <template>
   <div>
-    Nuxt module playground!
-    <pre>{{ appConfig }}</pre>
+    <h1>Build Info</h1>
+    <pre>{{ JSON.stringify(buildInfo, null, 2) }}</pre>
   </div>
 </template>
