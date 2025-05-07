@@ -1,6 +1,7 @@
 import Git from 'simple-git'
 import { isDevelopment } from 'std-env'
 
+// vercel, cloudflare pages
 export const isPR = import.meta.env.NUXT_ENV_VERCEL_GIT_COMMIT_REF?.startsWith('pull/') || import.meta.env.PULL_REQUEST === 'true' || import.meta.env.CF_PAGES_BRANCH?.startsWith('pull/')
 
 export const gitBranch = import.meta.env.VERCEL_GIT_COMMIT_REF || import.meta.env.CF_PAGES_BRANCH || import.meta.env.BRANCH
