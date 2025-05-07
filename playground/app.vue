@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const buildInfo = useBuildEnv()
+const buildInfo = useBuildInfo()
 </script>
 
 <template>

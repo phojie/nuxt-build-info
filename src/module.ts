@@ -1,16 +1,16 @@
-import type { BuildInfo, Environment } from './runtime/types'
+import type { BuildInfo } from './runtime/types'
 import { addImportsDir, createResolver, defineNuxtModule } from '@nuxt/kit'
-import { getEnv, getGitInfo } from './runtime/utils/env'
+import { getEnv } from './runtime/utils/env'
 
 declare module '@nuxt/schema' {
   interface NuxtConfig {
-    buildEnv?: Partial<BuildInfo>
+    buildInfo?: Partial<BuildInfo>
   }
   interface AppConfigInput {
-    buildEnv?: Partial<BuildInfo>
+    buildInfo?: Partial<BuildInfo>
   }
   interface AppConfig {
-    buildEnv: BuildInfo
+    buildInfo: BuildInfo
   }
 }
 
@@ -20,8 +20,8 @@ export interface ModuleOptions {
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
-    name: 'build-env',
-    configKey: 'buildEnv',
+    name: 'build-info',
+    configKey: 'buildInfo',
   },
   defaults: {
     version: undefined,
@@ -43,10 +43,9 @@ export default defineNuxtModule<ModuleOptions>({
       branch,
       env,
     }
-    nuxt.options.appConfig.buildEnv = buildInfo
     nuxt.options.appConfig = nuxt.options.appConfig || {}
-    nuxt.options.appConfig.env = env
     nuxt.options.appConfig.buildInfo = buildInfo
+    nuxt.options.appConfig.env = env
 
     nuxt.options.nitro.virtual = nuxt.options.nitro.virtual || {}
     nuxt.options.nitro.virtual['#build-info'] = `export const env = ${JSON.stringify(env)}`
