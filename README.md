@@ -18,6 +18,7 @@ Track deployments with build-time info: version, git details, env context and ti
 
 ### Supported platforms:
 - Vercel
+- Netlify
 - Cloudflare Pages
 - GitHub Actions
 - Standard Git environments

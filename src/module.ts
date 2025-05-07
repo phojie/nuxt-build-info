@@ -1,6 +1,6 @@
 import type { BuildInfo, Environment } from './runtime/types'
 import { addImportsDir, createResolver, defineNuxtModule } from '@nuxt/kit'
-import { getGitInfo } from './runtime/utils/env'
+import { getEnv, getGitInfo } from './runtime/utils/env'
 
 declare module '@nuxt/schema' {
   interface NuxtConfig {
@@ -16,7 +16,6 @@ declare module '@nuxt/schema' {
 
 export interface ModuleOptions {
   version?: string
-  disablePublicAssets?: boolean
 }
 
 export default defineNuxtModule<ModuleOptions>({
@@ -26,26 +25,31 @@ export default defineNuxtModule<ModuleOptions>({
   },
   defaults: {
     version: undefined,
-    disablePublicAssets: false,
   },
   async setup(options, nuxt) {
     const { resolve } = createResolver(import.meta.url)
     const runtimeDir = resolve('./runtime')
 
-    nuxt.options.alias['#build-env'] = resolve('./runtime')
-
-    // Get build info
-    const { branch, commit, shortCommit } = await getGitInfo()
+    /**
+     * We use this module to inject build info into the app.
+     * This is useful for debugging and for displaying the current build info in the app.
+     */
+    const { env, commit, shortCommit, branch } = await getEnv()
     const buildInfo: BuildInfo = {
       version: options.version || '0.0.0',
+      time: +Date.now(),
       commit,
       shortCommit,
       branch,
-      env: process.env.NODE_ENV as Environment,
-      time: +new Date(),
+      env,
     }
-
     nuxt.options.appConfig.buildEnv = buildInfo
+    nuxt.options.appConfig = nuxt.options.appConfig || {}
+    nuxt.options.appConfig.env = env
+    nuxt.options.appConfig.buildInfo = buildInfo
+
+    nuxt.options.nitro.virtual = nuxt.options.nitro.virtual || {}
+    nuxt.options.nitro.virtual['#build-info'] = `export const env = ${JSON.stringify(env)}`
 
     addImportsDir(resolve(runtimeDir, 'composables'))
   },
