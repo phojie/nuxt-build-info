@@ -42,7 +42,7 @@ export default defineNuxtModule<ModuleOptions>({
       shortCommit,
       branch,
       env: process.env.NODE_ENV as Environment,
-      time: new Date().toISOString(),
+      time: +new Date(),
     }
 
     nuxt.options.appConfig.buildEnv = buildInfo
