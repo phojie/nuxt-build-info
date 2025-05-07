@@ -31,13 +31,13 @@ Install the module to your Nuxt application with one command:
 
 ```bash
 # Using pnpm
-pnpm add -D nuxt-build-info
+pnpm add -D @phojie/nuxt-build-info
 
 # Using yarn
-yarn add --dev nuxt-build-info
+yarn add --dev @phojie/nuxt-build-info
 
 # Using npm
-npm install --save-dev nuxt-build-info
+npm install --save-dev @phojie/nuxt-build-info
 ```
 
 2. Add `nuxt-build-info` to the `modules` section of `nuxt.config.ts`
@@ -45,7 +45,7 @@ npm install --save-dev nuxt-build-info
 ```js
 export default defineNuxtConfig({
   modules: [
-    'nuxt-build-info'
+    '@phojie/nuxt-build-info'
   ],
   buildInfo: {
     // Optional: Set a custom version instead of package.json version
@@ -116,11 +116,11 @@ npm run test:watch
 
 <!-- Badges -->
 
-[npm-version-src]: https://img.shields.io/npm/v/nuxt-build-info/latest.svg?style=flat&colorA=020420&colorB=00DC82
-[npm-version-href]: https://npmjs.com/package/nuxt-build-info
-[npm-downloads-src]: https://img.shields.io/npm/dm/nuxt-build-info.svg?style=flat&colorA=020420&colorB=00DC82
-[npm-downloads-href]: https://npm.chart.dev/nuxt-build-info
-[license-src]: https://img.shields.io/npm/l/nuxt-build-info.svg?style=flat&colorA=020420&colorB=00DC82
-[license-href]: https://npmjs.com/package/nuxt-build-info
+[npm-version-src]: https://img.shields.io/npm/v/@phojie/nuxt-build-info/latest.svg?style=flat&colorA=020420&colorB=00DC82
+[npm-version-href]: https://npmjs.com/package/@phojie/nuxt-build-info
+[npm-downloads-src]: https://img.shields.io/npm/dm/@phojie/nuxt-build-info.svg?style=flat&colorA=020420&colorB=00DC82
+[npm-downloads-href]: https://npm.chart.dev/@phojie/nuxt-build-info
+[license-src]: https://img.shields.io/npm/l/@phojie/nuxt-build-info.svg?style=flat&colorA=020420&colorB=00DC82
+[license-href]: https://npmjs.com/package/@phojie/nuxt-build-info
 [nuxt-src]: https://img.shields.io/badge/phojie-020420?logo=phojie
 [nuxt-href]: https://github.com/phojie

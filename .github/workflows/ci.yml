@@ -18,11 +18,15 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: latest
+          cache: 'pnpm'
 
-      - run: pnpm i -g --force corepack@latest && corepack enable
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: latest
 
       - name: Install dependencies
-        run: npx nypm@latest i
+        run: pnpm install
 
       - name: Lint
         run: pnpm run lint
@@ -36,14 +40,18 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: 'pnpm'
 
-      - run: ppnpm i -g --force corepack@latest && corepack enable
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: latest
 
       - name: Install dependencies
-        run: npx nypm@latest i
+        run: pnpm install
 
       - name: Playground prepare
-        run: ppnpm run dev:prepare
+        run: pnpm run dev:prepare
 
       # - name: Test
       #   run: pnpm run test
