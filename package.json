@@ -2,8 +2,28 @@
   "name": "nuxt-build-env",
   "type": "module",
   "version": "0.0.0",
-  "description": "Build environment variables information for Nuxt",
+  "packageManager": "pnpm@10.10.0+sha512.d615db246fe70f25dcfea6d8d73dee782ce23e2245e3c4f6f888249fb568149318637dca73c2c5c8ef2a4ca0d5657fb9567188bfab47f566d1ee6ce987815c39",
+  "description": "Track deployments with build-time info: version, git details, env context and timestamps for Nuxt apps",
+  "author": "Phojie Rengel <phojrengel@gmail.com>",
   "license": "MIT",
+  "funding": "https://github.com/sponsors/phojie",
+  "homepage": "https://github.com/phojie/nuxt-build-env",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phojie/nuxt-build-env.git"
+  },
+  "bugs": "https://github.com/phojie/nuxt-build-env/issues",
+  "keywords": [
+    "nuxt",
+    "build",
+    "env",
+    "version",
+    "git",
+    "details",
+    "env",
+    "context",
+    "timestamps"
+  ],
   "exports": {
     ".": {
       "types": "./dist/types.d.mts",
@@ -21,6 +41,9 @@
   "files": [
     "dist"
   ],
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "prepack": "nuxt-module-build build",
     "dev": "nuxi dev playground",
@@ -38,16 +61,17 @@
     "std-env": "^1.0.0"
   },
   "devDependencies": {
+    "@antfu/eslint-config": "^4.13.0",
     "@nuxt/devtools": "^2.3.2",
     "@nuxt/module-builder": "^1.0.1",
     "@nuxt/schema": "^3.17.2",
     "@nuxt/test-utils": "^3.17.2",
     "@types/node": "latest",
     "changelogen": "^0.6.1",
+    "eslint": "^9.26.0",
     "nuxt": "^3.17.2",
     "typescript": "^5.8.3",
     "vitest": "^3.1.1",
     "vue-tsc": "^2.2.8"
-  },
-  "packageManager": "pnpm@10.10.0+sha512.d615db246fe70f25dcfea6d8d73dee782ce23e2245e3c4f6f888249fb568149318637dca73c2c5c8ef2a4ca0d5657fb9567188bfab47f566d1ee6ce987815c39"
+  }
 }

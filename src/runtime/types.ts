@@ -1,8 +1,10 @@
+export type Environment = 'dev' | 'preview' | 'canary' | 'release'
+
 export interface BuildInfo {
   version: string
+  time: number
   commit: string
   shortCommit: string
-  time: number
   branch: string
-  env: 'preview' | 'canary' | 'dev' | 'release'
+  env: Environment
 }

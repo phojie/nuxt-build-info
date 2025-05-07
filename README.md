@@ -5,14 +5,14 @@
 [![License][license-src]][license-href]
 [![Nuxt][nuxt-src]][nuxt-href]
 
-Nuxt module for build environment variables information.
+Track deployments with build-time info: version, git details, env context and timestamps for Nuxt apps
 
 ## ✨ Features
 
 - 📦 **Version** - Track your application version
 - 🔄 **Commit** - Full commit hash for precise tracking
 - 📎 **Short Commit** - Abbreviated commit hash for display
-- 🌿 **Branch** - Current branch name 
+- 🌿 **Branch** - Current branch name
 - 🚀 **Env** - Environment context (dev, preview, canary, release)
 - ⏱️ **Time** - Build timestamp for tracking deployments
 

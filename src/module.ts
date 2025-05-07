@@ -3,12 +3,6 @@ import fs from 'node:fs'
 import { createResolver, defineNuxtModule } from '@nuxt/kit'
 import { getEnv } from './runtime/utils/env'
 
-declare global {
-  interface ImportMeta {
-    env: Record<string, string>
-  }
-}
-
 export interface ModuleOptions {
   version: string
   disablePublicAssets?: boolean
