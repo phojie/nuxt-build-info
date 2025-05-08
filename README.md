@@ -116,7 +116,7 @@ npm run test:watch
 
 ## 👨‍💻 Credits
 
-This module is inspired by the work of [@antfu](https://github.com/antfu).
+- [@antfu](https://github.com/antfu).
 
 ## 🏛️ License
 
