@@ -116,7 +116,7 @@ npm run test:watch
 
 ## 👨‍💻 Credits
 
-- [@antfu](https://github.com/antfu).
+- [@antfu](https://github.com/antfu)
 
 ## 🏛️ License
 
