@@ -1,5 +1,5 @@
 {
-  "name": "@phojie/nuxt-build-info",
+  "name": "nuxt-build-info",
   "type": "module",
   "version": "1.0.0",
   "publishConfig": {
