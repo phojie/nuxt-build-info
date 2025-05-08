@@ -1,4 +1,4 @@
-# Nuxt Build Env
+# Nuxt Build Info
 
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
@@ -23,7 +23,7 @@ Track deployments with build-time info: version, git details, env context and ti
 - GitHub Actions
 - Standard Git environments
 
-## Quick Setup
+## 🚀 Quick Setup
 
 Install the module to your Nuxt application with one command:
 
@@ -31,13 +31,13 @@ Install the module to your Nuxt application with one command:
 
 ```bash
 # Using pnpm
-pnpm add -D @phojie/nuxt-build-info
+pnpm add -D nuxt-build-info
 
 # Using yarn
-yarn add --dev @phojie/nuxt-build-info
+yarn add --dev nuxt-build-info
 
 # Using npm
-npm install --save-dev @phojie/nuxt-build-info
+npm install --save-dev nuxt-build-info
 ```
 
 2. Add `nuxt-build-info` to the `modules` section of `nuxt.config.ts`
@@ -45,7 +45,7 @@ npm install --save-dev @phojie/nuxt-build-info
 ```js
 export default defineNuxtConfig({
   modules: [
-    '@phojie/nuxt-build-info'
+    'nuxt-build-info'
   ],
   buildInfo: {
     // Optional: Set a custom version instead of package.json version
@@ -54,9 +54,9 @@ export default defineNuxtConfig({
 })
 ```
 
-That's it! You can now use Nuxt Build Env in your Nuxt app ✨
+That's it! You can now use Nuxt Build Info in your Nuxt app ✨
 
-## Usage
+## 📦 Usage
 
 ### Composables
 ```.vue
@@ -66,7 +66,7 @@ const { version, commit, shortCommit, branch, env, time } = useBuildInfo()
 
 <template>
   <div>
-    <h1>Build Env</h1>
+    <h1>Build Info</h1>
     <p>Version: {{ version }}</p>
     <p>Commit: {{ commit }}</p>
   </div>
@@ -87,7 +87,7 @@ const { buildInfo } = useAppConfig()
 </template>
 ```
 
-## Contribution
+## 🤝 Contribution
 
 <details>
   <summary>Local development</summary>
@@ -114,13 +114,21 @@ npm run test:watch
 ```
 </details>
 
+## 👨‍💻 Credits
+
+This module is inspired by the work of [@antfu](https://github.com/antfu).
+
+## 🏛️ License
+
+[MIT](./LICENSE) License © 2025-Present [Phojie](https://github.com/phojie)
+
 <!-- Badges -->
 
-[npm-version-src]: https://img.shields.io/npm/v/@phojie/nuxt-build-info/latest.svg?style=flat&colorA=020420&colorB=00DC82
-[npm-version-href]: https://npmjs.com/package/@phojie/nuxt-build-info
-[npm-downloads-src]: https://img.shields.io/npm/dm/@phojie/nuxt-build-info.svg?style=flat&colorA=020420&colorB=00DC82
-[npm-downloads-href]: https://npm.chart.dev/@phojie/nuxt-build-info
-[license-src]: https://img.shields.io/npm/l/@phojie/nuxt-build-info.svg?style=flat&colorA=020420&colorB=00DC82
-[license-href]: https://npmjs.com/package/@phojie/nuxt-build-info
+[npm-version-src]: https://img.shields.io/npm/v/nuxt-build-infonuxt-build-info/latest.svg?style=flat&colorA=020420&colorB=00DC82
+[npm-version-href]: https://npmjs.com/package/nuxt-build-infonuxt-build-info
+[npm-downloads-src]: https://img.shields.io/npm/dm/nuxt-build-infonuxt-build-info.svg?style=flat&colorA=020420&colorB=00DC82
+[npm-downloads-href]: https://npm.chart.dev/nuxt-build-infonuxt-build-info
+[license-src]: https://img.shields.io/npm/l/nuxt-build-infonuxt-build-info.svg?style=flat&colorA=020420&colorB=00DC82
+[license-href]: https://npmjs.com/package/nuxt-build-infonuxt-build-info
 [nuxt-src]: https://img.shields.io/badge/phojie-020420?logo=phojie
 [nuxt-href]: https://github.com/phojie
