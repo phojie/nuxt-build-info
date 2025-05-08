@@ -124,11 +124,11 @@ This module is inspired by the work of [@antfu](https://github.com/antfu).
 
 <!-- Badges -->
 
-[npm-version-src]: https://img.shields.io/npm/v/nuxt-build-infonuxt-build-info/latest.svg?style=flat&colorA=020420&colorB=00DC82
-[npm-version-href]: https://npmjs.com/package/nuxt-build-infonuxt-build-info
-[npm-downloads-src]: https://img.shields.io/npm/dm/nuxt-build-infonuxt-build-info.svg?style=flat&colorA=020420&colorB=00DC82
-[npm-downloads-href]: https://npm.chart.dev/nuxt-build-infonuxt-build-info
-[license-src]: https://img.shields.io/npm/l/nuxt-build-infonuxt-build-info.svg?style=flat&colorA=020420&colorB=00DC82
-[license-href]: https://npmjs.com/package/nuxt-build-infonuxt-build-info
+[npm-version-src]: https://img.shields.io/npm/v/nuxt-build-info/latest.svg?style=flat&colorA=020420&colorB=00DC82
+[npm-version-href]: https://npmjs.com/package/nuxt-build-info
+[npm-downloads-src]: https://img.shields.io/npm/dm/nuxt-build-info.svg?style=flat&colorA=020420&colorB=00DC82
+[npm-downloads-href]: https://npm.chart.dev/nuxt-build-info
+[license-src]: https://img.shields.io/npm/l/nuxt-build-info.svg?style=flat&colorA=020420&colorB=00DC82
+[license-href]: https://npmjs.com/package/nuxt-build-info
 [nuxt-src]: https://img.shields.io/badge/phojie-020420?logo=phojie
 [nuxt-href]: https://github.com/phojie
