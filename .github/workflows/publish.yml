@@ -37,7 +37,6 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: |
-            pages project list
-            pages deploy playground/dist/ --project-name=nuxt-build-info --branch=main
+            pages deploy playground/dist/ --project-name=nuxt-build-info
           packageManager: pnpm
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
