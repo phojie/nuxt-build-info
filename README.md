@@ -118,6 +118,14 @@ npm run test:watch
 
 - [@antfu](https://github.com/antfu)
 
+## 🌻 Sponsors
+
+<p align="center">
+  <a href="https://cdn.jsdelivr.net/gh/phojie/static/sponsors.svg">
+    <img src='https://cdn.jsdelivr.net/gh/phojie/static/sponsors.svg'/>
+  </a>
+</p>
+
 ## 🏛️ License
 
 [MIT](./LICENSE) License © 2025-Present [Phojie](https://github.com/phojie)
